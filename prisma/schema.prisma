@@ -21,7 +21,7 @@ model Tenant {
 }
 
 model Floor {
-  floor_no Int @id
+  floor_no Int @id @default(autoincrement())
   name String
   house_count Int
   tenant Tenant[]
