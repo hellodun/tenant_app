@@ -6,11 +6,13 @@ const prisma = new PrismaClient();
 const floorRoute = express.Router();
 
 floorRoute.post("/floors", async (req: Request, res: Response) => {
-  const { name, house_count } = req.body;
+  const { name, house_count, rent } = req.body;
+
   const newFloor = await prisma.floor.create({
     data: {
       name,
       house_count: Number(house_count),
+      rent: Number(rent),
     },
   });
 
