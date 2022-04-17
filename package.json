@@ -1,0 +1,26 @@
+{
+  "name": "tenant_app",
+  "version": "1.0.0",
+  "description": "App to facilitate tenant management",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Duncan G",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "ts-node": "^10.7.0",
+    "@prisma/client": "^3.12.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15",
+    "prisma": "^3.12.0",
+    "@types/express": "^4.17.13",
+    "eslint": "^8.13.0",
+    "express": "^4.17.3",
+    "typescript": "^4.6.3"
+  }
+}
