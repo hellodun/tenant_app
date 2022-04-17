@@ -1,11 +1,22 @@
-import { PrismaClient } from "@prisma/client";
-import express, { Request, Response } from "express";
+import express from "express";
 import floorRoute from "./routes/floorRoutes";
 import tenantRoute from "./routes/tenantRoutes";
 
 const app = express();
 app.use(express.json());
-const prisma = new PrismaClient();
+app.set("view engine", "ejs");
+
+app.get("/", (req, res) => {
+  res.render("index");
+});
+
+app.get("/floorss", (req, res) => {
+  res.render("floors");
+});
+
+app.get("/tenantss", (req, res) => {
+  res.render("tenants");
+});
 
 app.use(floorRoute);
 app.use(tenantRoute);
