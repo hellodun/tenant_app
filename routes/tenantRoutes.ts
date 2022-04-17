@@ -27,4 +27,29 @@ tenantRoute.get("/tenants", async (req: Request, res: Response) => {
   res.json(allTenants);
 });
 
+tenantRoute.put("/tenants", async (req: Request, res: Response) => {
+  const { id, email } = req.body;
+
+  const updatedTenant = await prisma.tenant.update({
+    where: {
+      id: Number(id),
+    },
+    data: {
+      email,
+    },
+  });
+  res.json(updatedTenant);
+});
+
+tenantRoute.delete("/tenants/:id", async (req: Request, res: Response) => {
+  const id = req.params.id;
+  const deletedTenant = await prisma.tenant.delete({
+    where: {
+      id: Number(id),
+    },
+  });
+
+  res.json(deletedTenant);
+});
+
 export default tenantRoute;
