@@ -13,27 +13,15 @@ model Tenant {
   email String @unique
   phone Int @unique
   passport_id Int @unique
-  house_no String
   floor_no Int
   status String
   floor Floor @relation(fields: [floor_no], references: [floor_no])
-  house House @relation(fields: [house_no], references: [house_no])
 }
 
 model Floor {
   floor_no Int @id @default(autoincrement())
   name String
   house_count Int
-  tenant Tenant[]
-  house House[]
-}
-
-model House {
-  house_no String @id
-  floor_no Int
-  rooms Int
   rent Int
-  tenant_id Int
-  floor Floor @relation(fields: [floor_no], references: [floor_no])
-  tenant Tenant?
+  tenant Tenant[]
 }
