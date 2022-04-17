@@ -1,4 +1,4 @@
-import express, { Request, Response } from "express";
+import { Request, Response } from "express";
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
@@ -33,6 +33,8 @@ const updateFloor = async (req: Request, res: Response) => {
       house_count: Number(house_count),
     },
   });
+
+  res.json(updatedFloor);
 };
 
 const deleteFloor = async (req: Request, res: Response) => {
