@@ -15,7 +15,7 @@ tenantRoute.post("/tenants/add", createTenant);
 
 tenantRoute.get("/tenants", getTenants);
 
-tenantRoute.put("/tenants", updateTenants);
+tenantRoute.put("/tenants/:id", updateTenants);
 
 tenantRoute.delete("/tenants/:id", deleteTenant);
 

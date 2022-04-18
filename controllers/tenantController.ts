@@ -4,7 +4,7 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 const createTenant = async (req: Request, res: Response) => {
-  const { name, email, phone, passport_id, house_no, floor_no, status } =
+  const { name, email, phone, passport_id, house_no, building_id, status } =
     req.body;
   const newTenant = await prisma.tenant.create({
     data: {
@@ -13,7 +13,7 @@ const createTenant = async (req: Request, res: Response) => {
       phone: Number(phone),
       passport_id: Number(passport_id),
       house_no,
-      floor_no: Number(floor_no),
+      building_id: Number(building_id),
       status,
     },
   });

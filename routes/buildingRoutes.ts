@@ -8,7 +8,7 @@ import {
 
 const buildingRoute = express.Router();
 
-buildingRoute.post("/buildings", addBuilding);
+buildingRoute.post("/buildings/add", addBuilding);
 
 buildingRoute.get("/buildings", getBuildings);
 
