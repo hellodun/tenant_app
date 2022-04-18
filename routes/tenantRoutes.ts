@@ -11,7 +11,7 @@ const prisma = new PrismaClient();
 
 const tenantRoute = express.Router();
 
-tenantRoute.post("/tenants", createTenant);
+tenantRoute.post("/tenants/add", createTenant);
 
 tenantRoute.get("/tenants", getTenants);
 

@@ -12,6 +12,7 @@ const createTenant = async (req: Request, res: Response) => {
       email,
       phone: Number(phone),
       passport_id: Number(passport_id),
+      house_no,
       floor_no: Number(floor_no),
       status,
     },
