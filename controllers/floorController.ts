@@ -14,7 +14,7 @@ const createFloor = async (req: Request, res: Response) => {
     },
   });
 
-  res.json(newFloor);
+  res.redirect("/floors");
 };
 
 const getFloors = async (req: Request, res: Response) => {
