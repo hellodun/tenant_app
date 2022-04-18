@@ -14,7 +14,7 @@ const addBuilding = async (req: Request, res: Response) => {
     },
   });
 
-  res.redirect("/buildings");
+  res.json(building);
 };
 
 const getBuildings = async (req: Request, res: Response) => {

@@ -5,7 +5,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home | Tenant Mngt</title>
+  <title>
+    <%= title %> | Tenant Mngt
+  </title>
 </head>
 
 <body>
@@ -16,12 +18,13 @@
       </a>
     </div>
     <ul>
-      <li><a href="/tenants/add">Tenants</a></li>
+      <li><a href="/tenants/add">Add Tenants</a></li>
+      <li><a href="/buildings/add">Add Building</a></li>
     </ul>
   </nav>
 
   <h3>Enter new tenant details</h3>
-  <form action="/tenants" method="post">
+  <form action="/tenants/add" method="post">
     <label for="name">Enter name</label>
     <input type="text" name="name" id="name">
     <label for="email">Enter email</label>
@@ -32,8 +35,8 @@
     <input type="number" name="passport_id" id="id">
     <label for="house_no">Enter house number</label>
     <input type="text" name="house_no" id="house_no">
-    <label for="floor">Enter the floor living in</label>
-    <input type="number" name="floor_no" id="floor">
+    <label for="floor">Enter the building</label>
+    <input type="number" name="building_id" id="building_id">
     <label for="status">Select rent status</label>
     <select name="status" id="status">
       <option value="pain">Paid</option>
