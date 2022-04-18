@@ -16,7 +16,7 @@ model Tenant {
   house_no String
   building_id Int
   status String
-  floor Building @relation(fields: [building_id], references: [id])
+  building Building @relation(fields: [building_id], references: [id])
 }
 
 model Building {
