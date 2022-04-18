@@ -1,26 +1,19 @@
 import express from "express";
-import floorRoute from "./routes/floorRoutes";
+import buildingRoute from "./routes/buildingRoutes";
 import tenantRoute from "./routes/tenantRoutes";
 
 const app = express();
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 
-app.get("/", (req, res) => {
-  res.render("index");
-});
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-app.get("/floorss", (req, res) => {
-  res.render("floors");
-});
-
-app.get("/tenantss", (req, res) => {
-  res.render("tenants");
-});
-
-app.use(floorRoute);
+app.use(buildingRoute);
 app.use(tenantRoute);
+
+app.get("/tenants", (req, res) => {
+  res.render("tenants/create", { title: "Tenants" });
+});
 
 const PORT = process.env.PORT || 3333;
 app.listen(PORT, () => console.log(`App running on port ${PORT}`));

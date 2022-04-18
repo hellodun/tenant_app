@@ -3,10 +3,10 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-const createFloor = async (req: Request, res: Response) => {
+const addBuilding = async (req: Request, res: Response) => {
   const { name, house_count, rent } = req.body;
 
-  const newFloor = await prisma.floor.create({
+  const building = await prisma.floor.create({
     data: {
       name,
       house_count: Number(house_count),
@@ -14,16 +14,17 @@ const createFloor = async (req: Request, res: Response) => {
     },
   });
 
-  res.redirect("/floors");
+  res.redirect("/buildings");
 };
 
-const getFloors = async (req: Request, res: Response) => {
-  const floors = await prisma.floor.findMany();
-  res.json(floors);
+const getBuildings = async (req: Request, res: Response) => {
+  const buildings = await prisma.floor.findMany();
+  res.json(buildings);
 };
 
-const updateFloor = async (req: Request, res: Response) => {
-  const { floor_no, name, house_count } = req.body;
+const updateBuilding = async (req: Request, res: Response) => {
+  const floor_no = req.params.id;
+  const { name, house_count } = req.body;
   const updatedFloor = await prisma.floor.update({
     where: {
       floor_no: Number(floor_no),
@@ -37,7 +38,7 @@ const updateFloor = async (req: Request, res: Response) => {
   res.json(updatedFloor);
 };
 
-const deleteFloor = async (req: Request, res: Response) => {
+const removeBuilding = async (req: Request, res: Response) => {
   const floor_no = req.params.id;
   const deletedFloor = await prisma.floor.delete({
     where: {
@@ -48,4 +49,4 @@ const deleteFloor = async (req: Request, res: Response) => {
   res.json(deletedFloor);
 };
 
-export { createFloor, getFloors, updateFloor, deleteFloor };
+export { addBuilding, getBuildings, updateBuilding, removeBuilding };
