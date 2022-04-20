@@ -5,9 +5,9 @@ export default function AddTenants() {
   return (
     <>
       <Navbar />
-      <div>
-        <h3 className='text-2xl font-semibold mx-60 my-10'>Enter new tenant details</h3>
-        <form action="/tenants/add" method="post" className="mx-48">
+      <div className='flex items-center flex-col'>
+        <h3 className='text-2xl font-semibold my-10'>Enter new tenant details</h3>
+        <form action="/tenants/add" method="post" className="w-1/3">
           <div className="font-normal text-md">
             <div className="flex justify-between mb-3" >
               <label htmlFor="name">Enter name</label>
