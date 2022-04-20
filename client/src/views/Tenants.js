@@ -5,6 +5,8 @@ const Tenants = () => {
   return (
     <div className="App">
       <Navbar />
+      <div>Tenants component</div>
+      <div>Buildings component</div>
     </div>
   );
 }
