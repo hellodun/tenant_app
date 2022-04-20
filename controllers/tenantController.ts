@@ -6,8 +6,6 @@ const prisma = new PrismaClient();
 const createTenant = async (req: Request, res: Response) => {
   const { name, email, phone, passport_id, house_no, building_id, status } =
     req.body;
-
-  console.log(req.body);
   const newTenant = await prisma.tenant.create({
     data: {
       name,
